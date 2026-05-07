@@ -120,6 +120,28 @@
   });
 }
 
+
+  function manageNotificationButton() {
+    const allowBtn = document.getElementById("push-subscription-button");
+    if (!allowBtn) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // १. जर URL मध्ये 'notif=done' आलं असेल, तर GitHub च्या मेमरीत साठवा
+    if (urlParams.get('notif') === 'done') {
+      localStorage.setItem("github_notif_status", "registered");
+    }
+
+    // २. जर GitHub च्या मेमरीत 'registered' असेल, तर बटन लपवा
+    if (localStorage.getItem("github_notif_status") === "registered") {
+      allowBtn.style.display = "none";
+      console.log("नोंदणी आधीच झाली आहे, बटन कायमचे लपवले.");
+    }
+  }
+
+  // पेज लोड झाल्यावर रन करा
+  window.onload = manageNotificationButton;
+
 // बटण लपवण्यासाठी साधे लॉजिक (onload मध्ये)
 window.onload = function() {
   if (Notification.permission === 'granted') {
