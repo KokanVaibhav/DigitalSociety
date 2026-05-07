@@ -40,7 +40,7 @@ self.addEventListener('notificationclick', function(event) {
   event.notification.close();
 
   // २. तुमची GitHub PWA ची लिंक (मूळ URL)
-  const appUrl = 'https://kokanvaibhav.github.io/digitalsociety/';
+  const appUrl = 'https://kokanvaibhav.github.io/DigitalSociety/';
 
   event.waitUntil(
     clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function(windowClients) {
