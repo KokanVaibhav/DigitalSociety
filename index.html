@@ -11,22 +11,50 @@
         body, html { margin: 0; padding: 0; height: 100vh; width: 100vw; display: flex; flex-direction: column; overflow: hidden; background-color: #ffffff; }
         
         /* नवीन आणि सुधारित नोटिफिकेशन बार */
-        #notif-bar { 
-            background: #2196F3; color: white; text-align: center; padding: 12px; 
-            font-family: 'Segoe UI', Tahoma, sans-serif; display: none; width: 100%; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); flex-shrink: 0; position: relative;
-        }
+/* --- नवीन आणि सुव्यवस्थित CSS कोड --- */
 
-        #notif-bar button.allow-btn { 
-            margin-left: 10px; padding: 6px 15px; border-radius: 4px; border: none; 
-            cursor: pointer; font-weight: bold; background: white; color: #2196F3; 
-        }
+#notif-bar { 
+    background: #2196F3; 
+    color: white; 
+    padding: 10px 15px; /* वर-खाली १०, डावी-उजवी १५ */
+    font-family: 'Segoe UI', Tahoma, sans-serif; 
+    display: none; /* गरजेनुसार जाणीवपूर्वक दिसेल */
+    width: 100%; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+    flex-shrink: 0; 
 
-        /* बार बंद करण्यासाठी छोटे 'X' बटन */
-        .close-notif {
-            position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
-            background: none; border: none; color: white; font-size: 20px; cursor: pointer;
-        }
+    /* Flexbox मुळे सर्व गोष्टी एका सरळ ओळीत आणि मध्ये दिसतील */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; /* सर्व गोष्टी सेंटरला येतील */
+    box-sizing: border-box; /* पॅडिंगमुळे बार रुंदीबाहेर जाणार नाही */
+}
+
+/* "Allow" बटण */
+#notif-bar button.allow-btn { 
+    margin: 0 15px; /* दोन्ही बाजूंनी १५px जागा */
+    padding: 6px 15px; 
+    border-radius: 4px; 
+    border: none; 
+    cursor: pointer; 
+    font-weight: bold; 
+    background: white; 
+    color: #2196F3; 
+    font-size: 14px;
+}
+
+/* बार बंद करण्यासाठी '×' बटण - आता काठावर जाणार नाही */
+.close-notif {
+    background: rgba(255, 255, 255, 0.2); /* हलका पांढरा बॅकग्राउंड */
+    border: none; 
+    color: white; 
+    font-size: 20px; 
+    cursor: pointer; 
+    padding: 0px 8px; /* क्लिक करायला सोपं जाण्यासाठी */
+    border-radius: 50%; /* गोल आकार */
+    line-height: 1; /* उंची व्यवस्थित ठेवण्यासाठी */
+    margin-left: auto; /* हे महत्त्वाचे आहे: क्रॉसला एकदम उजवीकडे ढकलण्यासाठी, पण सुरक्षित अंतरावर */
+}
 
         #app-iframe { flex-grow: 1; width: 100%; border: none; }
     </style>
